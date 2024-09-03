@@ -3,10 +3,13 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const ShowAllTeam = () => {
-  const [teamData, setTeamData] = useState([]);
+  const [teamData, setTeamData] = useState([]);  
+  const [independentCount, setInDependentCount] = useState(0);
+
 
   const fetchAllTeamsData = async () => {
     try {
+      console.log("nhohiociorjhf;iowejdpiohdpi2edpoejdohenpidn2dn2pio3jd3klekl23koqwjuowgvshbqk djqigdiq:d2divedweg2yfeu2hdvsdbhkwgduqwhdiljhwjkv jfyqwgs ");
       const { data } = await axios.get("http://100.98.17.116:3001/team/showAll");
       setTeamData(data.teamsData || []);
     } catch (error) {
@@ -44,7 +47,14 @@ const ShowAllTeam = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> <button
+        className="p-2 m-2 rounded-lg bg-green-500 text-white hover:bg-green-600 transition duration-300"
+        onClick={() => setInDependentCount(independentCount + 1)}
+      >
+        Increment Independent Count
+      </button>
+      <p>Independent Count: {independentCount}</p>
+
     </>
   );
 };
